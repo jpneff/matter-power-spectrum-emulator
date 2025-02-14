@@ -1,0 +1,15 @@
+1.Define the parameter set number with num_samples in ''parameters_generator.py''
+
+2.Run ''N-body_simulations.py'' to calculate the power spectrum for each set of parameters and save each simulation with the respective parameters in the 'IDE' folder.
+
+#IF GPU RUNS OUT OF MEMORY, DECREASE X in os.environ['XLA_PYTHON_CLIENT_MEM_FRACTION'] = '.X' --> X = 8.5 OR 8 OR 7.5 ...
+
+#IF POSSIBLE, INCREASE THE NUMBER OF PARTICLES X IN 'ptcl_grid_shape = (X,) * 3' --> X = 256 OR 512 OR 1024
+
+3.Run ''npz.py'' to save the sets of parameters in 'params.npz' and the k modes and the non linear power spectrum in 'spectra.npz'
+
+4.Run ''train_non_linear.py'' to train the neural network and create the emulator 'trained_model.pkl'
+
+5.Run ''test.py'' to compare the emulator and the simulation
+
+6.Send 'trained_model.pkl' to 'neff.caccia@gmail.com'
